@@ -11,6 +11,8 @@ namespace Project.Hometown
         private InputManager _inputManager;
         [SerializeField]
         private Spawner _spawner;
+        [SerializeField]
+        private HouseView _houseView;
 
         public HouseController HouseController { get; private set; }
         
@@ -28,11 +30,20 @@ namespace Project.Hometown
             }
 
             //add implementation
+            HouseController = new HouseController(this, "House", _inputManager);
+            if(_houseView==null)
+            {
+                _houseView = FindObjectOfType<HouseView>();
+            }
+            _houseView.Setup(HouseController);
+            _houseView.EnableScript();
         }
 
         private void OnDestroy()
         {
             //add implementation
+            HouseController.OnContextDispose();
         }
+
     }
 }

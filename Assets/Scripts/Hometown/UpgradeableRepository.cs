@@ -27,6 +27,7 @@ namespace Project.Hometown
             var randomMaxLevel = UnityEngine.Random.Range(5, 10);
 
             var data = new UpgradeableData(randomCurrentLevel, randomMaxLevel);
+            Debug.Log($"Data created with {data.Level} / {data.MaxLevel}");
             callback?.Invoke(data);
         }
     }

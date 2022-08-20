@@ -14,6 +14,10 @@
         public void LevelUp()
         {
             //add implementation
+            if(Level < MaxLevel)
+            {
+                Level++;
+            }
         }
     }
 }
