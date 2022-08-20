@@ -30,13 +30,18 @@ namespace Project.Hometown
             }
 
             //add implementation
-            HouseController = new HouseController(this, "House", _inputManager);
-            if(_houseView==null)
+            if (_houseView == null)
             {
                 _houseView = FindObjectOfType<HouseView>();
             }
+
+            HouseController = new HouseController(this, "House", _inputManager);
+            
             _houseView.Setup(HouseController);
             _houseView.EnableScript();
+
+            _spawner.Setup(HouseController);
+            _spawner.EnableScript();
         }
 
         private void OnDestroy()
